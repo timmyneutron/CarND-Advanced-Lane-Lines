@@ -18,7 +18,17 @@ Concepts explored in this project:
   - Radius of curvature
 
 ## Getting Started
-To view the code 
+To view the code, open `advancedLaneLines.html` in a web browser.
+
+To view and run the code, open `advancedLaneLines.ipynb` in a Jupyter Notebook. Running the code requires having the following libraries installed:
+
+  - Python 3
+  - `IPython`
+  - `numpy`
+  - `cv2`
+  - `glob`
+  - `matplotlib`
+  - `moviepy`
 
 ## Camera Calibration
 
