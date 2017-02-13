@@ -17,6 +17,9 @@ Concepts explored in this project:
   - Sobel gradients
   - Radius of curvature
 
+## Getting Started
+To view the code 
+
 ## Camera Calibration
 
 Images of a 9x6 chessboard were included in the camera_cal folder. To calibrate the camera:
