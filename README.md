@@ -4,6 +4,8 @@
 # Udacity Self-Driving Car Nanodegree
 # Project #4: Advanced Lane Lines
 
+![](https://raw.githubusercontent.com/timmyneutron/CarND-Advanced-Lane-Lines/master/output_images/adv_lane_lines_screenshot.jpg)
+
 ## Introduction
 This is a project for Udacity's Self-Driving Car Nanodegree. It uses computer vision techniques to detect lane lines in front of a moving car and estimate the radius of curvature of the lane and distance of the car from the center of the lane.
 
