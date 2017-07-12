@@ -1,8 +1,8 @@
 
 ![Udacity - Self-Driving Car NanoDegree](https://s3.amazonaws.com/udacity-sdc/github/shield-carnd.svg)
 
-# Udacity Self-Driving Car Nanodegree
-# Project #4: Advanced Lane Lines
+# Udacity Self-Driving Car Nanodegree: Term 1
+# Project 4: Advanced Lane Lines
 
 ![](https://raw.githubusercontent.com/timmyneutron/CarND-Advanced-Lane-Lines/master/output_images/adv_lane_lines_screenshot.jpg)
 
