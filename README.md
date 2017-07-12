@@ -24,17 +24,11 @@ To view the output video, click [here](https://youtu.be/Y6a7cMIjWjA).
 
 To view the code, open `advancedLaneLines.html` in a web browser.
 
-To view and run the code, open `advancedLaneLines.ipynb` in a Jupyter Notebook. Running the code requires having the following libraries installed:
+To run the code, first follow the instructions [here](https://github.com/udacity/CarND-Term1-Starter-Kit) to download and install the necessary dependencies. Then open `advancedLaneLines.ipynb` in a Jupyter Notebook.
 
-  - Python 3
-  - `IPython`
-  - `numpy`
-  - `cv2`
-  - `glob`
-  - `matplotlib`
-  - `moviepy`
+## Write Up
 
-## Camera Calibration
+### Camera Calibration
 
 Images of a 9x6 chessboard were included in the camera_cal folder. To calibrate the camera:
 
@@ -48,7 +42,7 @@ The distortion coefficients found from the camera calibration can then be used t
 
 ![png](output_images/output_4_1.png)
 
-## Perspective transform
+### Perspective transform
 
 The next step was to find the matrices for the perspective transform and inverse transform, to create a "birds eye" view of the lanes from which to judge lane curvature. To find these::
 
@@ -63,7 +57,7 @@ Original and warped images can be found below, with the source and destination p
 ![png](output_images/output_3_0.png)
 
 
-## Image Processing
+### Image Processing
 
 Next, the images are processed using color thresholding to identify the lanes:
 
@@ -78,7 +72,7 @@ Original and binary images are shown below, with the lane lines clearly visible.
 ![png](output_images/output_4_0.png)
 
 
-## Warping and Region Masking
+### Warping and Region Masking
 
 Processed images are warped using the `M` warping matrix found before. A region mask is applied to points closer to the lateral edges of the image to eliminate noise.
 
@@ -87,7 +81,7 @@ Binary and warped/masked images are show below.
 ![png](output_images/output_5_0.png)
 
 
-## Locating Lane Lines
+### Locating Lane Lines
 
 The bases of the lane lines are located using a histogram of the columns of the lower half of the warped binary image.
 
@@ -96,7 +90,7 @@ Images and histograms are shown below - peaks on the histogram identify the loca
 ![png](output_images/output_6_1.png)
 
 
-## Identifying Lane Lines and Curve Fitting
+### Identifying Lane Lines and Curve Fitting
 
 Points on the lane lines are identified using a "moving windows" technique. Rectangular windows are placed at the bottom of the image, centered at each histogram peak. Points that fall within either window are identified as belonging to that lane. If there are enough points identified, then the center for the next window is set at the mean of those points.
 
@@ -113,7 +107,7 @@ Windows, lane points, and curves are show below. Windows are shown in green, lef
 ![png](output_images/output_7_0.png)
 
 
-## Filling in the lane
+### Filling in the lane
 
 Once the best-fit curves are identified, `cv2.Polyfill` is used to fill in the space between them in green. Then that filled in lane is unwarped and combined that with the original (undistorted) image using `cv2.addWeighted` to highlight the lane line on the original image in green.
 
@@ -121,11 +115,11 @@ An original image with the lane line overlaid on top is shown below.
 
 ![png](output_images/output_17_1.png)
 
-## Calculating Position
+### Calculating Position
 
 The best-fit curves found previously are used to find the distance between the base of the lane lines, and the middle of the lane is calculated as the midpoint of those points. The distance of the middle of the lane from the center of the image is then calculated as the position of the car relative to the center of the lane
 
-## Calculating Radius of Curvature
+### Calculating Radius of Curvature
 
 Given a second-order polynomial of the form:
 
@@ -137,13 +131,13 @@ the radius of curvature can be calculated using the formula:
 
 This formula is used to convert the radius of curvature for each lane line at the base of the lane lines. Those values are then averaged to give the radius of curvature for the lane.
 
-## Displaying Information
+### Displaying Information
 
 Once the lane position and radius of curvature are calculated, they are displayed on the filled image using `cv2.putText`. A sample image is show below.
 
 ![png](output_images/output_21_1.png)
 
-## Pipeline
+### Pipeline
 
 The steps detailed above were all included in the video pipeline, using `moviepy.editor.VideoFileClip` to read in each image in the original video file, apply the steps above, and output the image into a new video file.
 
@@ -151,7 +145,7 @@ To smooth out noise in the radius of curvature measurements, outliers (values gr
 
 Output video is saved as `output_video.mp4`.
 
-## Discussion/Next Steps
+### Discussion/Next Steps
 
 The pipeline as it is works fine on the project video, but isn't very robust to more challenging conditions, especially when no lane line points are found in an image. Making it more robust, with being able to throw away outliers and use previous calculations, is a logical next step. This could be done more robust outlier removal (especially when finding the lane lines), and using previous lane measurements to influence where to look for the next lane.
 
