@@ -24,7 +24,9 @@ To view the output video, click [here](https://youtu.be/Y6a7cMIjWjA).
 
 To view the code, open `advancedLaneLines.html` in a web browser.
 
-To run the code, first follow the instructions [here](https://github.com/udacity/CarND-Term1-Starter-Kit) to download and install the necessary dependencies. Then open `advancedLaneLines.ipynb` in a Jupyter Notebook.
+To run the code, first follow the instructions [here](https://github.com/udacity/CarND-Term1-Starter-Kit) to download and install the necessary dependencies. Then open `advancedLaneLines.ipynb` by executing:
+
+`$ jupyter notebook advancedLaneLines.ipynb`
 
 ## Write Up
 
